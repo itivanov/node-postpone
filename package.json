@@ -1,0 +1,34 @@
+{
+    "name": "node-postpone",
+    "version": "0.1.0",
+    "description": "Postpone function execution",
+    "author": {
+        "name": "Ivan Ivanov",
+        "email": "itanev@gmail.com",
+        "url": "https://github.com/itivanov"
+    },
+    "keywords": ["wait", "postpone", "async", "schedule", "sleep"],
+    "license": "MIT",
+    "main": "index.js",
+    "homepage": "https://github.com/itivanov/node-postpone",
+    "bugs": {
+        "url": "https://github.com/itivanov/node-postpone/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/itivanov/node-postpone"
+    },
+    "devDependencies": {
+        "chai": "^4.1.0",
+        "mocha": "^3.4.2"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "dependencies": {
+
+    }
+}

@@ -1,11 +1,11 @@
 # Node.js Postpone
 Postpone function execution
 
-# Installation
+## Installation
 
-# Example
+## Example
 
-# API
+## API
 
-# License
+## License
 MIT

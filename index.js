@@ -21,9 +21,9 @@ var self = module.exports = {
      * Execute a function asynchronously and schedules execution of a one-time callback after delay milliseconds.
      */
     runasync: function(msec, fn, cb) {
-        setTimeout(function() {
+        self.wait(0, function() {
             fn();
-        }, 0);
+        });
 
         self.wait(msec, function() {
             cb();
@@ -34,12 +34,12 @@ var self = module.exports = {
      * Execute a function asynchronously and then schedules execution of a one-time callback after delay milliseconds.
      */
     runsync: function(msec, fn, cb) {
-        setTimeout(function() {
+        self.wait(0, function() {
             fn();
 
             self.wait(msec, function() {
                 cb();
             });
-        }, 0);
+        });
     }
 };

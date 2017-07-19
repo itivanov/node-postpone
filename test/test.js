@@ -3,7 +3,7 @@
 var expect = require('chai').expect;
 var postpone = require('../index');
 
-describe('postpone', function() {
+describe('node-postpone', function() {
     describe('#now()', function() {
         it('should return timestamp', function() {
             var ts = postpone.now();

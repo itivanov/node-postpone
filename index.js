@@ -12,22 +12,15 @@ var self = module.exports = {
      * Schedules execution of a one-time callback after delay milliseconds.
      */
     wait: function(msec, cb) {
-        setTimeout(function() {
-            cb();
-        }, msec);
+        return setTimeout(cb, msec);
     },
 
     /**
      * Execute a function asynchronously and schedules execution of a one-time callback after delay milliseconds.
      */
     runasync: function(msec, fn, cb) {
-        self.wait(0, function() {
-            fn();
-        });
-
-        self.wait(msec, function() {
-            cb();
-        });
+        self.wait(0, fn);
+        return self.wait(msec, cb);
     },
 
     /**
@@ -37,9 +30,18 @@ var self = module.exports = {
         self.wait(0, function() {
             fn();
 
-            self.wait(msec, function() {
-                cb();
-            });
+            self.wait(msec, cb);
         });
-    }
+    },
+
+    /**
+     * Repeat
+     */
+     repeat: function(msec, cb) {
+
+     },
+
+     doAndRepeat:  function(msec, cb) {
+
+     }
 };

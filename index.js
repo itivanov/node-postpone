@@ -2,46 +2,61 @@
 
 var self = module.exports = {
     /**
-     * Return current timestamp (milliseconds since 1970/01/01)
+     * Returns the number of milliseconds elapsed since 1 January 1970 00:00:00 UTC
      */
     now: function() {
         return new Date().getTime();
     },
 
     /**
-     * Schedules execution of a one-time callback after delay milliseconds.
+     * Postpone execution of a one-time non-blocking action after delay
      */
-    wait: function(msec, cb) {
-        return setTimeout(cb, msec);
+    wait: function(delay, cb) {
+        return setTimeout(cb, delay);
     },
 
     /**
-     * Execute a function asynchronously and schedules execution of a one-time callback after delay milliseconds.
+     * Execute a non-blocking action and postpone execution of a one-time non-blocking action after delay
      */
-    runasync: function(msec, fn, cb) {
+    runWait: function(delay, fn, cb) {
         self.wait(0, fn);
-        return self.wait(msec, cb);
+        return self.wait(delay, cb);
     },
 
     /**
-     * Execute a function asynchronously and then schedules execution of a one-time callback after delay milliseconds.
+     * Execute a non-blocking action and then postpone execution of a one-time non-blocking action after delay
      */
-    runsync: function(msec, fn, cb) {
+    runAndWait: function(delay, fn, cb) {
         self.wait(0, function() {
             fn();
-
-            self.wait(msec, cb);
+            self.wait(delay, cb);
         });
     },
 
     /**
-     * Repeat
+     * Repeat a non-blocking action
      */
-     repeat: function(msec, cb) {
+    repeat: function(delay, cb) {
+        return setInterval(cb, delay);
+    },
 
-     },
+    /**
+     * Run and repeat a non-blocking action
+     */
+    doRepeat: function(delay, cb) {
+        self.wait(0, function() {
+            cb();
+            setInterval(cb, delay);
+        });
+    },
 
-     doAndRepeat:  function(msec, cb) {
+    /* Backward compatibility */
 
-     }
+    runasync: function(delay, fn, cb) {
+        return self.runWait(delay, fn, cb);
+    },
+
+    runsync: function(delay, fn, cb) {
+        self.runAndWait(delay, fn, cb);
+    }
 };

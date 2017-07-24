@@ -1,16 +1,14 @@
 # Node.js Postpone
-======
+
 Postpone function execution
 
 ## Installation
-------
 
 ```
 npm install node-postpone --save
 ```
 
 ## Usage
-------
 
 ``` js
 var postpone = require('node-postpone');
@@ -73,12 +71,10 @@ postpone.runAndWait(1000,
 ```
 
 ## Tests
-------
 
 ```
 npm test
 ```
 
 ## License
-------
 MIT

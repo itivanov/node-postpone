@@ -1,7 +1,7 @@
 {
     "name": "node-postpone",
     "version": "0.1.2",
-    "description": "Postpone function execution",
+    "description": "Postpone non-blocking function execution",
     "author": {
         "name": "Ivan Ivanov",
         "email": "itanev@gmail.com",

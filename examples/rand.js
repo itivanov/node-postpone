@@ -2,4 +2,4 @@
 
 var postpone = require('../index');
 
-console.log(postpone.now());
+console.log(postpone.rand());

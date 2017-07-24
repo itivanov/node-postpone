@@ -11,17 +11,32 @@ npm install node-postpone --save
 
 ``` js
 var postpone = require('node-postpone');
+```
 
-// Return current timestamp (milliseconds since 1970/01/01)
+### now()
+
+Return current timestamp (milliseconds since 1970/01/01)
+
+``` js
 var now = postpone.now();
+```
 
-// Postpone execution of a one-time callback after delay milliseconds
+### wait()
+
+Postpone execution of a one-time action after delay
+
+``` js
 postpone.wait(1000, function() {
-  console.log('done after 1 sec');
+    console.log('done after 1 sec');
 });
+```
 
-// Execute a function asynchronously and postpone execution of a one-time callback after delay milliseconds
-postpone.runasync(1000,
+### now()
+
+Execute a action and postpone execution of a one-time action after delay
+
+``` js
+postpone.runWait(1000,
     function() {
         console.log('done task 1 : immediately');
     },
@@ -29,14 +44,19 @@ postpone.runasync(1000,
         console.log('done task 2 : after 1 sec');
     }
 );
+```
 
-// Execute a function asynchronously and then postpone execution of a one-time callback after delay milliseconds
-postpone.runsync(1000,
+### now()
+
+Execute a action and postpone execution of a one-time action after delay
+
+``` js
+postpone.runAndWait(1000,
     function() {
         console.log('done task 1 : immediately');
     },
     function() {
-        console.log('done task 2 : 1 sec after task 1');
+        console.log('done task 2 : 1 sec after task 1 finish');
     }
 );
 ```

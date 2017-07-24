@@ -101,18 +101,18 @@ var self = module.exports = {
     /**
      * Run and repeat an action with @delay miliseconds intervals
      */
-    doRepeat: function(delay, run, cb) {
+    doRepeat: function(delay, start, run) {
+        if (typeof start !== 'function') {
+            return false;
+        }
+
         if (typeof run !== 'function') {
             return false;
         }
 
-        if (typeof cb !== 'function') {
-            return false;
-        }
-
        self.wait(0, function() {
-            run();
-            setInterval(cb, delay);
+            start();
+            setInterval(run, delay);
         });
     },
 

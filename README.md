@@ -1,13 +1,16 @@
 # Node.js Postpone
+======
 Postpone function execution
 
 ## Installation
+------
 
 ```
 npm install node-postpone --save
 ```
 
 ## Usage
+------
 
 ``` js
 var postpone = require('node-postpone');
@@ -21,9 +24,11 @@ Return current timestamp (milliseconds since 1970/01/01)
 var now = postpone.now();
 ```
 
-### wait()
+### wait(delay, run)
 
 Postpone execution of a one-time action after delay
+- `delay`: time in miliseconds
+- `run`: function to execute after `delay`
 
 ``` js
 postpone.wait(1000, function() {
@@ -31,9 +36,12 @@ postpone.wait(1000, function() {
 });
 ```
 
-### now()
+### runWait(delay, start, run)
 
 Execute a action and postpone execution of a one-time action after delay
+- `delay`: time in miliseconds
+- `start`: function to execute immediately
+- `run`: function to execute after `delay`
 
 ``` js
 postpone.runWait(1000,
@@ -46,9 +54,12 @@ postpone.runWait(1000,
 );
 ```
 
-### now()
+### runAndWait(delay, start, run)
 
 Execute a action and postpone execution of a one-time action after delay
+- `delay`: time in miliseconds
+- `start`: function to execute immediately
+- `run`: function to execute after `delay` after `start` finish
 
 ``` js
 postpone.runAndWait(1000,
@@ -61,11 +72,13 @@ postpone.runAndWait(1000,
 );
 ```
 
-## Unit tests
+## Tests
+------
 
 ```
 npm test
 ```
 
 ## License
+------
 MIT
